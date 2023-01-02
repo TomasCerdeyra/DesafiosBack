@@ -15,7 +15,7 @@ httpServer.listen(8080, ()=> console.log('server en 8080'))
 
 //<----------------------------------------------------------------------------------->//
 const productos = [{nombre: 'auto', precio: 333, url: 'wewe'}]
-const mensajes = [{mail: 'www.com', hora: '10/02 30:40', mensaje: 'hola'}]
+const mensajes = []
 
 app.get('/', (req, res) => {
     res.render('inicio', { productos, mensajes })
@@ -23,6 +23,8 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
     console.log('usuario conectado');
+
+    socket.emit('message', mensajes)
 
     /* Envio de productos*/
     socket.on('new-productos', data =>{
@@ -36,3 +38,4 @@ io.on('connection', (socket) => {
         io.sockets.emit('message', mensajes)
     })
 })
+

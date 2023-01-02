@@ -27,3 +27,19 @@ function addMessage(){
 
     socket.emit('new-message', mensaje)
 }
+
+
+socket.on('message', data => {
+    const html = data.map( msj => {
+        return `
+        <tr>
+            <td>${msj.mail}</td>
+            <td>${msj.hora}</td>
+            <td>${msj.mensaje}</td>
+        </tr>
+        `
+    })
+
+    document.getElementById("table").innerHTML = html
+})
+

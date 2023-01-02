@@ -3,25 +3,12 @@
 
 <% if(mensajes.length > 0){ %>
     <div class="table-responsive">
-        <table class="table table-dark">
+        <table id="table" class="table table-dark">
             <tr style="color: yellow;">
                 <th>mail</th>
                 <th>hora</th>
                 <th>mensaje</th>
             </tr>
-            <% for (const mensaje of mensajes) {%>
-                <tr>
-                    <td>
-                        <%=mensaje.mail%>
-                    </td>
-                    <td>
-                        <%=mensaje.hora%>
-                    </td>
-                    <td>
-                        <%=mensaje.mensaje%>
-                    </td>
-                </tr>
-                <%};%>
         </table>
     </div>
     <% } else{ %>
