@@ -1,34 +1,38 @@
-import express from "express"
-import { productRoute } from "./routes/products.routes.js";
-import { Server } from "socket.io";
+const express = require('express')
+const { Server: HttpServer } = require('http')
+const { Server: IOServer } = require('socket.io')
 
-const app = express();
+const app = express()
+const httpServer = new HttpServer(app)
+const io = new IOServer(httpServer)
 
-app.use(express.urlencoded ({extended: true}))
-app.use(express.json())
-
-app.set("views", "./views");
+app.set("views", "./public/views");
 app.set('view engine', 'ejs')
 
-app.use('/', productRoute)
+app.use(express.static('./public'))
 
-const server = app.listen(8080, () =>{console.log("corriendo");})
+httpServer.listen(8080, ()=> console.log('server en 8080'))
 
-const io = new Server(server)
+//<----------------------------------------------------------------------------------->//
+const productos = [{nombre: 'auto', precio: 333, url: 'wewe'}]
+const mensajes = [{mail: 'www.com', hora: '10/02 30:40', mensaje: 'hola'}]
 
-//Exportar esto a routes
-export const productos = [{
-    nombre: "hola", precio: 300, url:"www.com"
-} ]
+app.get('/', (req, res) => {
+    res.render('inicio', { productos, mensajes })
+})
 
-io.on('connection', socket=>{
-    console.log('nuevlo conectado');
+io.on('connection', (socket) => {
+    console.log('usuario conectado');
 
-    socket.emit('productos', productos)
-
-    socket.on('new-product', data =>{
+    /* Envio de productos*/
+    socket.on('new-productos', data =>{
         productos.push(data)
+    })
 
-        io.sockets.emit('productos', productos)
+    /* Envio de mensajes */ 
+    socket.on('new-message', data =>{
+        mensajes.push(data)
+
+        io.sockets.emit('message', mensajes)
     })
 })
