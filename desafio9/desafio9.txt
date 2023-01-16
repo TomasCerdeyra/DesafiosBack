@@ -1,0 +1,45 @@
+1,2-   use ecommerce
+           
+           db.productos.insertMany([
+            {nombre: "carro", precio: 200},
+            {nombre: "muñeca", precio: 700},
+            {nombre: "camion", precio: 1660},
+            {nombre: "pistolaDeAgua", precio: 3420},
+            {nombre: "cartas", precio: 5000},
+           ])
+
+           db.mensajes.insertMany([
+            {texto: "hola", mail: "www.com"},
+            {texto: "hola", mail: "www.com"},
+            {texto: "¿Como estas?", mail:"www.com"},
+            {texto: "Bien", mail: "www.com"},
+            {texto: "que bueno", mail: "www.com"},
+           ])
+
+3- db.mensajes.find();
+   db.productos.find();
+
+4- db.mensajes.estimatedDocumentCount();
+   db.productos.estimatedDocumentCount();   
+
+5-
+    a) db.productos.insertOne({nombre: "play5", precio: 2060});
+    b) 
+        1) db.productos.find({ precio: {$lt: 1000}});
+
+        2) db.productos.find( { $and: [ { precio: { $gte: 1000 } }, { precio: { $lte: 3000 }}]});
+
+        3) db.productos.find({ precio: {$gt: 3000}});
+
+        4) db.productos.find({},{precio: 0, _id: 0}).skip(2).sort({precio: 1}).limit(1);
+
+    c) db.productos.updateMany({}, {$set: {stock: 100}});
+
+    d) db.productos.updateMany({precio: {$gt: 4000}}, {$set: {stock: 0}});
+    
+    e) db.productos.deleteMany({ precio: {$lt: 1000}});
+
+
+6- db.createUser({user: "pepe", pwd: "123", roles: [{role: "read", db: "ecommerce"}]});
+
+ 
