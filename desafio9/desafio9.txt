@@ -42,4 +42,5 @@
 
 6- db.createUser({user: "pepe", pwd: "123", roles: [{role: "read", db: "ecommerce"}]});
 
+
  
