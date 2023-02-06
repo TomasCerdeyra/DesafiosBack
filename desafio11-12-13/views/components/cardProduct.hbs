@@ -1,0 +1,12 @@
+
+<div class="card text-bg-secondary  mb-3 mt-4" style="max-width: 18rem; width: 18rem;">
+    <div class="card-header">Price: {{this.price}}$</div>
+    <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <p class="card-text">{{this.description}}</p>
+        <img style="max-width: 4rem;"" src={{this.image}} alt="">
+        {{!-- <p>{{this.image}}</p> --}}
+    </div>
+    <a href="/editar/{{this._id}}" class="btn btn-info">Editar</a>
+    <a href="/eliminar/{{this._id}}" class="btn btn-danger">Eliminar</a>
+</div>

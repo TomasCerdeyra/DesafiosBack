@@ -1,0 +1,15 @@
+<h1 class="text-center m-5">Registro de usuario nuevo</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form action="/register" method="post">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}" />
+            <input type="text" name="userName" placeholder="ingrese nombre" class="form-control mb-2">
+            <input type="text" name="email" placeholder="ingrese email" class="form-control mb-2">
+            <input type="password" name="password" placeholder="ingrese password" class="form-control mb-2">
+            <button type="submit" class="btn btn-primary">Registrar usuario</button>
+            <a href="/login" class="p-2">Ya tenes cuenta? Inicia sesion</a>
+        </form>
+    </div>
+</div>
+

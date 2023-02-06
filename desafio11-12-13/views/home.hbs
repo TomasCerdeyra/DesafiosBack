@@ -1,0 +1,20 @@
+<h1>Bienvenido Tomas</h1>
+
+{{#if prod}}
+    <h2 class="mt-4">Edite el producto seleccionado</h2>
+    {{> FormProduct}}
+{{else}}
+    <h2 class="mt-4">Ingrese un nuevo producto</h2>
+    {{> FormProduct}}
+    {{#if products}}
+        <h3 class="mt-4">Productos:</h3>
+        <article style="display: flex; flex-direction: row;">
+            {{#each products}}
+                {{> cardProduct}}
+            {{/each}}
+        </article>
+    {{/if}}
+    <h3 class="mt-4">Envie un mensaje:</h3>
+
+    {{> FormChat}}
+{{/if}}

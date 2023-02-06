@@ -1,0 +1,7 @@
+<h1>Ingrese el token para verificar su cuenta</h1>
+<h2>Tu token es: {{token}}</h2>
+
+<form action="/confirm/{{token}}" method="post">
+    <input type="text" placeholder="ingrese tu token" name="origin" class="form-control my-2">
+    <button type="submit" class="btn btn-primary w-100 mb-2">Confirmar Cuenta</button>
+</form>

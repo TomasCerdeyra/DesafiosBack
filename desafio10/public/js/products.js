@@ -79,7 +79,7 @@ socket.on('mensajes', (data) => {
         chatContainer.innerHTML += `
             <div class="message-container">
                 <div class="message-container__child">
-                    <img class="message-avatar" src="${avatar}" alt="${nombre} ${apellido}">
+                    <h5 class="message-avatar">${nombre} ${apellido}</h5>
                     <div>
                         <p class="message-user">${alias}</p>
                         <p class="message-text">${text}</p>

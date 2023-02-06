@@ -1,0 +1,19 @@
+{{#if prod}}
+<form action="/editar/{{prod._id}}" method="post" class="mt-4">
+    <input value="{{prod.name}}" type="text" placeholder="Product Name" name="name" class="form-control my-2">
+    <input value="{{prod.price}}" type="number" placeholder="Price" name="price" class="form-control my-2">
+    <input value="{{prod.description}}" type="text" placeholder="Description" name="description"
+        class="form-control my-2">
+    <input value="{{prod.image}}" type="text" placeholder="Url Image" name="image" class="form-control my-2">
+    <button type="submit" class="btn btn-success w-100 mb-2">Editar Producto</button>
+</form>
+{{else}}
+<form action="/" method="post" class="mt-4">
+    <input type="text" placeholder="Product Name" name="name" class="form-control my-2">
+    <input type="number" placeholder="Price" name="price" class="form-control my-2">
+    <input type="text" placeholder="Description" name="description" class="form-control my-2">
+    <input type="text" placeholder="Url Image" name="image" class="form-control my-2">
+
+    <button type="submit" class="btn btn-success w-100 mb-2">Agregar Producto</button>
+</form>
+{{/if}}
