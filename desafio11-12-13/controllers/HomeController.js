@@ -4,6 +4,7 @@ import ModelProduct from "../models/produtcModel.js";
 const listHomeAndProducts = async (req, res) => {
     try {
         const products = await ModelProduct.find({ user: req.user.id }).lean()
+        console.log(req.user.userName);
         res.render('home', { products: products })
     } catch (error) {
         console.log(error);

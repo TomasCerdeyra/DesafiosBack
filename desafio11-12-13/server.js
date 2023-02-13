@@ -7,6 +7,7 @@ import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import ModelUser from './models/userModel.js';
 import flash from 'connect-flash'
+import { args } from './config/minimit.js';
 //Routes
 import routeHome from './routes/HomeRoute.js';
 import routeChat from './routes/ChatRoute.js';
@@ -19,7 +20,7 @@ const __dirname = dirname(__filename);
 
 const app = express()
 
-connectionMongo()
+connectionMongo();
 
 //confi session
 app.use(session({
@@ -80,12 +81,31 @@ app.use((req, res, next) => {
     next()
 })
 
+//INFO PROCESS
+const trabajo = process.execPath
+const idProcess = process.pid
+const version = process.version
+const plataforma = process.platform
+const memoriaRss = process.memoryUsage().rss
+const carpeta = process.cwd()
+
 //Rutas
 app.use('/', routeHome)
 app.use('/chat', routeChat)
 app.use('/', routeLogin)
+//INFO RPOCESS
+app.get('/info', (req, res) => {
+    res.json(`trabajo: ${trabajo}/    idProcess: ${idProcess}/     version: ${version}/     plataforma: ${plataforma}/     memoriaRss: ${memoriaRss}/      carpeta: ${carpeta}/ `)
+})
 
-const PORT = process.env.PORT || 8080
+//Route nums random
+import randomNumbers from './utils/randomNums.js';
+app.get('/api/ramdoms', (req, res) => {
+    const { query } = req.query
+    res.json(`numeros randoms: ${randomNumbers(query)}`)
+})
+
+const PORT = args.puerto
 app.listen(PORT, () => {
     console.log('Escuchando 8080');
 })
