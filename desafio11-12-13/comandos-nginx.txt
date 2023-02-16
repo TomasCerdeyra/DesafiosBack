@@ -1,0 +1,15 @@
+
+"node server.js -m cluster -p 8082" entrará en modo cluster, de no pasar el modo ("node server.js") entrará por defecto en modo fork
+
+node server.js "Entra en el modo defaut que es fork en el 8081"
+
+NODEMON:
+
+Para ejecutar el servidor por nodemon nodemon server.js -m cluster p 8084"
+
+PM2:
+
+creacion de server en modo fork "pm2 start server.js --name Server1 --watch"
+
+creacion de server en modo cluster"pm2 start server.js --name Server2" -i max --watch "
+

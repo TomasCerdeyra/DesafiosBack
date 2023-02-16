@@ -93,19 +93,26 @@ const carpeta = process.cwd()
 app.use('/', routeHome)
 app.use('/chat', routeChat)
 app.use('/', routeLogin)
+
 //INFO RPOCESS
+import compression from 'compression';
 app.get('/info', (req, res) => {
-    res.json(`trabajo: ${trabajo}/    idProcess: ${idProcess}/     version: ${version}/     plataforma: ${plataforma}/     memoriaRss: ${memoriaRss}/      carpeta: ${carpeta}/ `)
+    res.send(`Trabajo: ${trabajo}<br>IdProcess: ${idProcess}<br>Version: ${version}<br>Plataforma: ${plataforma}<br>MemoriaRss: ${memoriaRss}<br>Carpeta: ${carpeta}<br>Peso sin compresion: 170B<br>Procesos Cluster: 16<br>Procesos Fork: 1 `);
+    
+})
+app.get('/infoGzip', compression(), (req, res) => {
+    res.send(`Trabajo: ${trabajo}<br>IdProcess: ${idProcess}<br>Version: ${version}<br>Plataforma: ${plataforma}<br>MemoriaRss: ${memoriaRss}<br>Carpeta: ${carpeta}<br>Peso con compresion: 17B<br>Procesos Cluster: 16<br>Procesos Fork: 1 `);
+    
 })
 
 //Route nums random
 import randomNumbers from './utils/randomNums.js';
-app.get('/api/ramdoms', (req, res) => {
+app.get('/api/randoms', (req, res) => {
     const { query } = req.query
     res.json(`numeros randoms: ${randomNumbers(query)}`)
 })
 
-const PORT = args.puerto
+const PORT = parseInt(process.argv[2]) || args.puerto
 app.listen(PORT, () => {
     console.log('Escuchando 8080');
 })
