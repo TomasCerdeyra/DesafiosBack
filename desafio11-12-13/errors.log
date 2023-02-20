@@ -1,0 +1,16 @@
+{"level":30,"time":1676646756583,"pid":7444,"hostname":"DESKTOP-U6EK1M6","msg":"Articulo eliminado: /home/eliminar/:id"}
+{"level":30,"time":1676646771667,"pid":7444,"hostname":"DESKTOP-U6EK1M6","msg":"product add: /home"}
+{"level":30,"time":1676646787007,"pid":7444,"hostname":"DESKTOP-U6EK1M6","msg":"Un usuario mando un mensaje correctamente /chat"}
+{"level":30,"time":1676646899153,"pid":8932,"hostname":"DESKTOP-U6EK1M6","msg":"Un usuario se logeo: /login"}
+{"level":30,"time":1676646903985,"pid":8932,"hostname":"DESKTOP-U6EK1M6","msg":"Un usuario se deslogeo /login"}
+{"level":50,"time":1676646909777,"pid":8932,"hostname":"DESKTOP-U6EK1M6","msg":"error al logear un usuario /login"}
+{"level":30,"time":1676647155364,"pid":2188,"hostname":"DESKTOP-U6EK1M6","msg":"Un usuario nuevo se registro /regsiter"}
+{"level":30,"time":1676647243256,"pid":8448,"hostname":"DESKTOP-U6EK1M6","msg":"escuchando 8080"}
+{"level":30,"time":1676647253520,"pid":1800,"hostname":"DESKTOP-U6EK1M6","msg":"escuchando8080"}
+{"level":30,"time":1676647264595,"pid":5840,"hostname":"DESKTOP-U6EK1M6","msg":"escuchando 8080"}
+{"level":30,"time":1676732191749,"pid":2732,"hostname":"DESKTOP-U6EK1M6","msg":"escuchando 8081"}
+{"level":50,"time":1676732206350,"pid":2732,"hostname":"DESKTOP-U6EK1M6","msg":"error al logear un usuario /login"}
+{"level":50,"time":1676735139346,"pid":2732,"hostname":"DESKTOP-U6EK1M6","msg":"error al logear un usuario /login"}
+{"level":30,"time":1676735144821,"pid":2732,"hostname":"DESKTOP-U6EK1M6","msg":"Un usuario se logeo: /login"}
+{"level":30,"time":1676852222610,"pid":9576,"hostname":"DESKTOP-U6EK1M6","msg":"escuchando 8081"}
+{"level":30,"time":1676852317331,"pid":6496,"hostname":"DESKTOP-U6EK1M6","msg":"escuchando 8081"}

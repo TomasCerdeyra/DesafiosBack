@@ -1,4 +1,5 @@
 import ModelProduct from "../models/produtcModel.js";
+import logger from "../utils/logger.js";
 
 
 const listHomeAndProducts = async (req, res) => {
@@ -16,10 +17,10 @@ const addProduct = async (req, res) => {
     const { name, price, description, image } = req.body
     try {
         await ModelProduct.create({ name: name, price: price, description: description, image: image, user: req.user.id })
-        console.log('Product add');
+        logger.info('product add: /home')
         res.redirect('/')
     } catch (error) {
-        console.log(error);
+        logger.info('Problema con el ingreso del producto: /home')
         res.redirect('/')
     }
 }
@@ -30,7 +31,6 @@ const editProductFomr = async (req, res) => {
         const prod = await ModelProduct.findById(id).lean()
         res.render('home', { prod })
     } catch (error) {
-        console.log(error);
         res.redirect('/')
     }
 }
@@ -43,10 +43,10 @@ const editProduct = async (req, res) => {
         const prod = await ModelProduct.findById(id)
         await prod.updateOne({ name, price, description, image })
 
-        console.log('prdo editado');
+        logger.info('prod editado: /home/editar/:id')
         res.redirect('/')
     } catch (error) {
-        console.log(error);
+        logger.info('Problema al editar producto: /home')
         res.redirect('/')
     }
 }
@@ -57,10 +57,10 @@ const deleteProduct = async (req, res) => {
         const prod = await ModelProduct.findById(id)
         //recordad validar que sea ese usuario para q pueda eliminar
         await prod.remove()
-        console.log('Articulo eliminad');
+        logger.info('Articulo eliminado: /home/eliminar/:id')
         res.redirect('/')
     } catch (error) {
-        console.log(error);
+        logger.info('Problema al eliminar producto: /home')
         res.redirect("/")
     }
 }

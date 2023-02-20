@@ -1,13 +1,15 @@
 import express from 'express'
 import { create } from 'express-handlebars'
 import connectionMongo from './dataBase/MongoDB.js';
+import { args } from './config/minimit.js';
+import logger from './utils/logger.js';
+import ModelUser from './models/userModel.js';
+//Pasport-Sessions
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
-import ModelUser from './models/userModel.js';
 import flash from 'connect-flash'
-import { args } from './config/minimit.js';
 //Routes
 import routeHome from './routes/HomeRoute.js';
 import routeChat from './routes/ChatRoute.js';
@@ -43,7 +45,7 @@ passport.use(new LocalStrategy({
 }, async (email, password, done) => {
     try {
         const user = await ModelUser.findOne({ email: email })
-        console.log(email);
+        
         if (user) done('el usuario ya esta conectado')
     } catch (error) {
         done(error)
@@ -98,9 +100,11 @@ app.use('/', routeLogin)
 import compression from 'compression';
 app.get('/info', (req, res) => {
     res.send(`Trabajo: ${trabajo}<br>IdProcess: ${idProcess}<br>Version: ${version}<br>Plataforma: ${plataforma}<br>MemoriaRss: ${memoriaRss}<br>Carpeta: ${carpeta}<br>Peso sin compresion: 170B<br>Procesos Cluster: 16<br>Procesos Fork: 1 `);
-    
+    //Ruta infoc log
+    console.log(`Trabajo: ${trabajo}<br>IdProcess: ${idProcess}<br>Version: ${version}<br>Plataforma: ${plataforma}<br>MemoriaRss: ${memoriaRss}<br>Carpeta: ${carpeta}<br>Peso sin compresion: 170B<br>Procesos Cluster: 16<br>Procesos Fork: 1 `);
 })
 app.get('/infoGzip', compression(), (req, res) => {
+    //Ruta sin  info
     res.send(`Trabajo: ${trabajo}<br>IdProcess: ${idProcess}<br>Version: ${version}<br>Plataforma: ${plataforma}<br>MemoriaRss: ${memoriaRss}<br>Carpeta: ${carpeta}<br>Peso con compresion: 17B<br>Procesos Cluster: 16<br>Procesos Fork: 1 `);
     
 })
@@ -114,5 +118,5 @@ app.get('/api/randoms', (req, res) => {
 
 const PORT = parseInt(process.argv[2]) || args.puerto
 app.listen(PORT, () => {
-    console.log('Escuchando 8080');
+    logger.info('escuchando '+ PORT)
 })

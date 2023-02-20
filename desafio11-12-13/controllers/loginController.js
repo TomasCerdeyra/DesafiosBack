@@ -1,6 +1,7 @@
 import ModelUser from "../models/userModel.js";
 import { validationResult } from "express-validator";
 import { nanoid } from 'nanoid'
+import logger from "../utils/logger.js";
 
 //REGISTER
 const register = (req, res) => {
@@ -24,8 +25,10 @@ const registerAdd = async (req, res) => {
         //
         const token = nanoid()
         await ModelUser.create({ userName, email, password, tokenConfirm: token })
+        logger.info('Un usuario nuevo se registro /regsiter')
         res.redirect(`/login`)
     } catch (error) {
+        logger.error('error al logear un usuario /register')
         req.flash("mensajes", [{msg: error.message}])
         res.redirect('/register')
     }
@@ -55,9 +58,11 @@ const loginEnter = async (req, res) => {
         if (!(await user.comparePassword(password))) throw new Error('Contraseña incorrecta')
         req.login(user, function (error) {
             if (error) throw new Error('Error al crear la sesion')
+            logger.info('Un usuario se logeo: /login')
             return res.redirect('/')
         })
     } catch (error) {
+        logger.error('error al logear un usuario /login')
         req.flash("mensajes", [{msg: error.message}])
         res.redirect('/login')
     }
@@ -97,7 +102,7 @@ const logoutSession = (req, res) => {
     req.logout((err) => {
         if (err) return next(err)
     })
-
+    logger.info('Un usuario se deslogeo /login')
     return res.redirect('/login')
 }
 
