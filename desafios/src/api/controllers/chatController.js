@@ -1,5 +1,5 @@
-import ModelChat from "../models/modelChat.js";
-import logger from "../utils/logger.js";
+import ModelChat from '../../components/models/modelChat.js';
+import logger from "../../utils/logger.js";
 
 const chat = async (req, res) => {
     try {

@@ -7,7 +7,7 @@ const config = {
     },
     default: {
         modo: 'fork',
-        puerto: '8081'
+        puerto: '8080'
     }
 } 
 export const args = parseArgs(process.argv.slice(2), config)

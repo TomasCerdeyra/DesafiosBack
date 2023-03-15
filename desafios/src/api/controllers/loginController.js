@@ -1,7 +1,7 @@
-import ModelUser from "../models/userModel.js";
+import ModelUser from "../../components/models/userModel.js";
 import { validationResult } from "express-validator";
 import { nanoid } from 'nanoid'
-import logger from "../utils/logger.js";
+import logger from "../../utils/logger.js";
 
 //REGISTER
 const register = (req, res) => {

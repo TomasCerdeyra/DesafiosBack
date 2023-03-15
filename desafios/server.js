@@ -1,9 +1,9 @@
 import express from 'express'
 import { create } from 'express-handlebars'
-import connectionMongo from './dataBase/MongoDB.js';
-import { args } from './config/minimit.js';
-import logger from './utils/logger.js';
-import ModelUser from './models/userModel.js';
+import connectionMongo from './src/components/dao/dataBase/MongoDB.js';
+import { args } from './src/config/minimit.js';
+import logger from './src/utils/logger.js';
+import ModelUser from './src/components/models/userModel.js';
 //Pasport-Sessions
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
@@ -11,9 +11,9 @@ import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import flash from 'connect-flash'
 //Routes
-import routeHome from './routes/HomeRoute.js';
-import routeChat from './routes/ChatRoute.js';
-import routeLogin from './routes/LoginRoute.js';
+import routeHome from './src/api/routes/HomeRoute.js';
+import routeChat from './src/api/routes/ChatRoute.js';
+import routeLogin from './src/api/routes/LoginRoute.js';
 //config __dirname
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -110,7 +110,7 @@ app.get('/infoGzip', compression(), (req, res) => {
 })
 
 //Route nums random
-import randomNumbers from './utils/randomNums.js';
+import randomNumbers from './src/utils/randomNums.js';
 app.get('/api/randoms', (req, res) => {
     const { query } = req.query
     res.json(`numeros randoms: ${randomNumbers(query)}`)

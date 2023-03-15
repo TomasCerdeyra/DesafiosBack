@@ -1,5 +1,5 @@
-import ModelProduct from "../models/produtcModel.js";
-import logger from "../utils/logger.js";
+import ModelProduct from '../../components/models/produtcModel.js'
+import logger from "../../utils/logger.js";
 
 
 const listHomeAndProducts = async (req, res) => {
