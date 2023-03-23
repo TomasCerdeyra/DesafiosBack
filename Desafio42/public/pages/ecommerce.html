@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/card.css" />
+    <title>Ecommerce</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="./ecommerce.html">Tienda</a></li>
+          <li><a href="./productos.html">Productos</a></li>
+          <li><a href="./carritos.html">Carritos</a></li>
+        </ul>
+      </nav>
+      <div class="header__user">
+        <div class="user-data grid-item">
+          <img
+            src="../img/no-user.png"
+            class="logoAvatar"
+            alt="logo"
+            id="logo-avatar"
+          />
+          <small id="small-email"></small>
+        </div>
+        <h3 class="grid-item middle-element">
+          Bienvenido <span id="span-name"></span>!
+        </h3>
+        <div class="icon-container">
+          <i class="fa-solid fa-shopping-cart grid-item" id="openDialogBtn"></i>
+          <i
+            class="fa-solid fa-right-from-bracket grid-item"
+            onclick="logout()"
+          ></i>
+        </div>
+      </div>
+    </header>
+    <main>
+      <h1>Tienda de productos</h1>
+      <hr />
+      <div id="products-container"></div>
+      <dialog id="dialog">
+        <h2>Carrito</h2>
+        <hr />
+        <div id="cartContainer"></div>
+        <div class="dialog__buttons">
+          <button class="btn buy-cart">Confirmar compra!</button>
+          <button class="btn" id="closeDialogBtn">Seguir comprando</button>
+        </div>
+      </dialog>
+    </main>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://kit.fontawesome.com/94c0117dd6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/sessions.js"></script>
+    <script src="../js/cart.js"></script>
+  </body>
+</html>

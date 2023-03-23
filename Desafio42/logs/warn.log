@@ -1,0 +1,2 @@
+[2023-01-16T19:56:46.486] [WARN] warn - Hubo un acceso en la ruta '/63c5d5e6167dce8a9b0ff9bf' método 'DELETE' no autorizada por falta de credenciales
+[2023-02-06T17:02:10.795] [WARN] warn - Un usuario sin los permisos suficientes intentó hacer una transacción en la ruta '/' método 'POST'

@@ -106,7 +106,6 @@ app.get('/info', (req, res) => {
 app.get('/infoGzip', compression(), (req, res) => {
     //Ruta sin  info
     res.send(`Trabajo: ${trabajo}<br>IdProcess: ${idProcess}<br>Version: ${version}<br>Plataforma: ${plataforma}<br>MemoriaRss: ${memoriaRss}<br>Carpeta: ${carpeta}<br>Peso con compresion: 17B<br>Procesos Cluster: 16<br>Procesos Fork: 1 `);
-    
 })
 
 //Route nums random
@@ -120,3 +119,4 @@ const PORT = parseInt(process.argv[2]) || args.puerto
 app.listen(PORT, () => {
     logger.info('escuchando '+ PORT)
 })
+//hola

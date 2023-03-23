@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Carritos</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Tienda</a></li>
+          <li><a href="./productos.html">Productos</a></li>
+          <li><a href="./carritos.html">Carritos</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Sección verificación Carritos</h1>
+      <hr />
+      <section>
+        <h2>Productos dentro de un carrito</h2>
+        <form id="get-products-form">
+          <label for="cartId">ID del carrito</label>
+          <input type="text" name="cartId" id="cartId" required />
+          <button class="btn" type="submit">Ver productos</button>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Código</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Imagen</th>
+              <th>Timestamp</th>
+              <th>Categoría</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody id="get-products-container"></tbody>
+        </table>
+      </section>
+      <hr />
+      <section>
+        <h2>Listado total de carritos:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Timestamp</th>
+              <th>Q Productos</th>
+            </tr>
+          </thead>
+          <tbody id="cart-container"></tbody>
+        </table>
+      </section>
+      <hr />
+      <section>
+        <h2>Eliminar un carrito entero</h2>
+        <form id="delete-cart-form">
+          <label for="deleteId">ID del carrito</label>
+          <input type="text" name="deleteId" id="deleteId" required />
+          <button class="btn" type="submit">Eliminar carrito</button>
+        </form>
+      </section>
+    </main>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://kit.fontawesome.com/94c0117dd6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/carts-section.js"></script>
+  </body>
+</html>
